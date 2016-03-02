@@ -36,6 +36,7 @@ public class OperationAnalyzer {
 
     private ProcessAPI processAPI;
 
+
     public OperationAnalyzer(APISession apiSession, Reporter reporter, List<OperationRule> operationRules, List<DataTypeRule> dataTypeRules, DeployedBDM deployedBDM) {
         this.apiSession = apiSession;
         this.reporter = reporter;

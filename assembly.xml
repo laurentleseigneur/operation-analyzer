@@ -1,0 +1,17 @@
+<assembly>
+    <id></id>
+    <formats>
+        <format>dir</format>
+        <format>zip</format>
+    </formats>
+    <dependencySets>
+        <dependencySet>
+            <useProjectArtifact>true</useProjectArtifact>
+            <useTransitiveDependencies>true</useTransitiveDependencies>
+            <unpack>false</unpack>
+            <scope>compile</scope>
+            <outputDirectory/>
+        </dependencySet>
+    </dependencySets>
+
+</assembly>
