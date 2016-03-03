@@ -33,11 +33,11 @@ public class OperationAnalyserRunner {
     public String tenantAdminPassword;
 
 
-    @Option(name = "-outputFile", usage = "if set, path to json report file (override existing file)", required = false)
+    @Option(name = "-outputFile", usage = "optional. path to json report file (override existing file)", required = false)
     public File reportFile;
 
 
-    @Option(name = "-outputConsole", usage = "if set, prints report to console", required = false)
+    @Option(name = "-outputConsole", usage = "optional. display report to console", required = false)
     public boolean outputConsole;
 
     public void run() {
@@ -60,15 +60,10 @@ public class OperationAnalyserRunner {
             loginAPI.logout(apiSession);
 
             if (reportFile != null) {
-                System.out.println("report written to file"+reportFile.getAbsolutePath());
-                File jsonReport = new File("report.json");
-                jsonReport.mkdirs();
-                if (jsonReport.exists()) {
-                    jsonReport.delete();
-                }
-                jsonReportBuilder.getJsonFileReport(jsonReport);
-
+                jsonReportBuilder.getJsonFileReport(reportFile);
+                System.out.println("write report to file:"+reportFile.getAbsolutePath());
             }
+
             if (outputConsole){
                 System.out.println(jsonReportBuilder.getJsonReport());
             }

@@ -18,13 +18,13 @@
             <groupId>com.bonitasoft.engine</groupId>
             <artifactId>bonita-client-sp</artifactId>
             <version>${bonita.version}</version>
-            <scope>provided</scope>
+            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>com.bonitasoft.engine</groupId>
             <artifactId>bonita-common-sp</artifactId>
             <version>${bonita.version}</version>
-            <scope>provided</scope>
+            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>

@@ -17,7 +17,7 @@ public class Main {
             operationAnalyserRunner.run();
         } catch (CmdLineException e) {
             System.err.println("error:"+e.getMessage());
-            System.err.println("required parameters:");
+            System.err.println("parameters:");
             cmdLineParser.printUsage(System.err);
         }
 
