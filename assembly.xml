@@ -4,14 +4,38 @@
         <format>dir</format>
         <format>zip</format>
     </formats>
+
     <dependencySets>
         <dependencySet>
             <useProjectArtifact>true</useProjectArtifact>
             <useTransitiveDependencies>true</useTransitiveDependencies>
             <unpack>false</unpack>
             <scope>compile</scope>
+            <outputDirectory>/lib</outputDirectory>
+            <excludes>
+                <exclude>com.bonitasoft.engine:bonita-client-sp</exclude>
+                <exclude>com.bonitasoft.engine:bonita-common-sp</exclude>
+                <exclude>com.bonitasoft.support:bonita-operation-analyzer</exclude>
+            </excludes>
+        </dependencySet>
+        <dependencySet>
+            <useProjectArtifact>true</useProjectArtifact>
+            <useTransitiveDependencies>true</useTransitiveDependencies>
+            <unpack>false</unpack>
+            <scope>compile</scope>
             <outputDirectory/>
+            <includes>
+                <include>com.bonitasoft.support:bonita-operation-analyzer</include>
+            </includes>
         </dependencySet>
     </dependencySets>
+    <fileSets>
+        <fileSet>
+            <outputDirectory>/</outputDirectory>
+            <includes>
+                <include>README.md</include>
+            </includes>
+        </fileSet>
+    </fileSets>
 
 </assembly>

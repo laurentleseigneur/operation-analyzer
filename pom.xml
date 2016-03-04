@@ -1,12 +1,13 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>org.bonitasoft.support</groupId>
+    <groupId>com.bonitasoft.support</groupId>
     <artifactId>bonita-operation-analyzer</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
     <properties>
         <bonita.version>6.4.0</bonita.version>
+        <!--<bonita.version>7.2.1-SNAPSHOT</bonita.version>-->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <!--<jackson-databind.version>2.4.4</jackson-databind.version>-->
         <jackson-databind.version>2.2.3</jackson-databind.version>
@@ -67,18 +68,11 @@
     </dependencies>
 
     <build>
-        <pluginManagement>
-            <plugins>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-compiler-plugin</artifactId>
-                    <version>3.0</version>
-                </plugin>
-            </plugins>
-        </pluginManagement>
         <plugins>
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.0</version>
                 <configuration>
                     <source>1.7</source>
                     <target>1.7</target>
@@ -92,10 +86,31 @@
                     <archive>
                         <manifest>
                             <addClasspath>true</addClasspath>
-                            <mainClass>org.bonitasoft.support.Main</mainClass>
+                            <classpathPrefix>lib/</classpathPrefix>
+                            <mainClass>com.bonitasoft.support.Main</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
+            </plugin>
+
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>copy-dependencies</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>copy-dependencies</goal>
+                        </goals>
+                        <configuration>
+                            <!-- for e2e purpose: we need excluded jar -->
+                            <!--<includeScope>provided</includeScope>-->
+                            <outputDirectory>${project.build.directory}/bonita-lib</outputDirectory>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
