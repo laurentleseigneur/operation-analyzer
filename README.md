@@ -30,7 +30,7 @@ a report is generated, with two options : console output and/or a report file. T
   
 example: 
   
-´´´json
+```json
 {
   "processReportWarnings" : [{
     "processName" : "myProcessName",
@@ -39,7 +39,7 @@ example:
     "processDisplayName" : "my process display name"
   }]
 }
-´´´
+```
 ## Usage
 
 * unzip distribution
@@ -48,21 +48,21 @@ The jar are available on [https://customer.bonitasoft.com/download/products](Bon
 * configure a bonita-home to connect to your Bonita BPM platform. see [http://documentation.bonitasoft.com/search/site/bonita%20home](Bonitasoft documentation about bonita home)
 * run with a json report file:
 
-´´´shell
+```shell
 java -jar bonita-operation-analyzer-[VERSION].jar -bonitaHome [PATH_TO_BONITA_HOME] -user [TENANT_ADMIN_LOGIN] -password [TENANT_ADMIN_PASSWORD] -outputFile [PATH_TO_REPORT_FILE] 
-´´´
+```
 
 * run with a console output:
 
-´´´shell
+```shell
 java -jar bonita-operation-analyzer-[VERSION].jar -bonitaHome [PATH_TO_BONITA_HOME] -user [TENANT_ADMIN_LOGIN] -password [TENANT_ADMIN_PASSWORD] -outputConsole
-´´´
+```
 
 * run with a console output and a json report file:
 
-´´´shell
+```shell
 java -jar bonita-operation-analyzer-[VERSION].jar -bonitaHome [PATH_TO_BONITA_HOME] -user [TENANT_ADMIN_LOGIN] -password [TENANT_ADMIN_PASSWORD] -outputConsole -outputFile [PATH_TO_REPORT_FILE]
-´´´
+```
 
 ### Supported version
 
